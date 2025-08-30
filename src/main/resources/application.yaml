@@ -1,0 +1,35 @@
+spring:
+  application:
+    name : workflow-management-wizard
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/workflow_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  data:
+    mongodb:
+      uri: mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@cluster0.dtjryl3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: workflow_db
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/workflow_db
+    user: postgres
+    password: postgres
+    baseline-on-migrate: true
+    enabled: true
+
+runners:
+  enabled: false
